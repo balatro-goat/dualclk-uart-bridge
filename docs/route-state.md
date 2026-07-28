@@ -1,0 +1,7 @@
+architecture=A
+architecture_changed_on=none
+architecture_reason=default
+verification=Q
+verification_changed_on=none
+verification_reason=default
+deferred_work=none

@@ -2,3 +2,47 @@
 __pycache__/
 sim_build/
 *.vvp
+
+# Generated simulation/synthesis artifacts (keep the output directory).
+/tmp/
+/diagnostics/
+/results/*
+!/results/.gitkeep
+*.vcd
+*.fst
+*.log
+*.pyc
+
+# Local editor settings and personal documents are not project sources.
+.vscode/
+.idea/
+.env
+.env.*
+*.pem
+*.key
+*.pdf
+*.docx
+*.tex
+
+# Unrelated introductory exercises remain available locally.
+/exercises/
+/rtl/counter.sv
+/rtl/seq_detector_101.sv
+/tb/Makefile
+/tb/test_counter.py
+/tb/tb_counter.sv
+/tb/tb_seq_detector_101.sv
+
+# Personal learning plans, interview preparation and raw audit notes.
+/IC.md
+/docs/day1-notes.md
+/docs/day2-notes.md
+/docs/route-state.md
+/docs/bug-diary.md
+/docs/audit-*.md
+/docs/cp15-checks.md
+/docs/internship-prep-14days.md
+/docs/interview-evidence-index.md
+/docs/mock-interview-qa.md
+/docs/next-10-checkpoints.md
+/docs/resume-review.md

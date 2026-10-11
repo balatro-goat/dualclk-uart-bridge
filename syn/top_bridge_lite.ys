@@ -1,0 +1,16 @@
+# Run from the repository root:
+# yosys -l results/top_bridge_lite_synth.log syn/top_bridge_lite.ys
+# Generic synthesis with the RTL default parameters; no FPGA or ASIC library.
+
+read_verilog -sv rtl/reset_sync.sv
+read_verilog -sv rtl/rxd_sync_2ff.sv
+read_verilog -sv rtl/tick_gen.sv
+read_verilog -sv rtl/uart_rx.sv
+read_verilog -sv rtl/async_fifo.sv
+read_verilog -sv rtl/fifo_read_adapter.sv
+read_verilog -sv rtl/top_bridge_lite.sv
+
+hierarchy -check -top top_bridge_lite
+synth -top top_bridge_lite
+check -assert
+write_verilog -noattr results/top_bridge_lite_synth.v

@@ -1,0 +1,24 @@
+ROOT_DIR := $(abspath ..)
+export PATH := $(ROOT_DIR)/.venv/bin:$(PATH)
+
+SIM := icarus
+TOPLEVEL_LANG := verilog
+
+VERILOG_SOURCES := \
+    $(ROOT_DIR)/rtl/reset_sync.sv \
+    $(ROOT_DIR)/rtl/rxd_sync_2ff.sv \
+    $(ROOT_DIR)/rtl/tick_gen.sv \
+    $(ROOT_DIR)/rtl/uart_rx.sv \
+    $(ROOT_DIR)/rtl/async_fifo.sv \
+    $(ROOT_DIR)/rtl/fifo_read_adapter.sv \
+    $(ROOT_DIR)/rtl/top_bridge_lite.sv
+
+COCOTB_TOPLEVEL := top_bridge_lite
+COCOTB_TEST_MODULES := test_top_bridge_lite
+
+COMPILE_ARGS += -g2012 -Wall
+
+SIM_BUILD := $(ROOT_DIR)/tmp/cocotb_top_bridge_lite
+COCOTB_RESULTS_FILE := $(ROOT_DIR)/results/top_bridge_lite_cocotb.xml
+
+include $(shell cocotb-config --makefiles)/Makefile.sim

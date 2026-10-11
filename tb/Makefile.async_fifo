@@ -1,0 +1,18 @@
+ROOT_DIR := $(abspath ..)
+export PATH := $(ROOT_DIR)/.venv/bin:$(PATH)
+
+SIM := icarus
+TOPLEVEL_LANG := verilog
+
+VERILOG_SOURCES := \
+	$(ROOT_DIR)/rtl/async_fifo.sv
+
+COCOTB_TOPLEVEL := async_fifo
+COCOTB_TEST_MODULES := test_async_fifo
+
+COMPILE_ARGS += -g2012 -Wall
+
+SIM_BUILD := $(ROOT_DIR)/tmp/cocotb_async_fifo
+COCOTB_RESULTS_FILE := $(ROOT_DIR)/results/async_fifo_cocotb.xml
+
+include $(shell cocotb-config --makefiles)/Makefile.sim

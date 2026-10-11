@@ -1,0 +1,20 @@
+ROOT_DIR := $(abspath ..)
+export PATH := $(ROOT_DIR)/.venv/bin:$(PATH)
+
+SIM := icarus
+TOPLEVEL_LANG := verilog
+
+VERILOG_SOURCES := \
+	$(ROOT_DIR)/rtl/rxd_sync_2ff.sv \
+	$(ROOT_DIR)/rtl/tick_gen.sv \
+	$(ROOT_DIR)/rtl/uart_rx.sv
+
+COCOTB_TOPLEVEL := uart_rx
+COCOTB_TEST_MODULES := test_uart_rx
+
+COMPILE_ARGS += -g2012 -Wall
+
+SIM_BUILD := $(ROOT_DIR)/tmp/cocotb_uart_rx
+COCOTB_RESULTS_FILE := $(ROOT_DIR)/results/uart_rx_cocotb.xml
+
+include $(shell cocotb-config --makefiles)/Makefile.sim
